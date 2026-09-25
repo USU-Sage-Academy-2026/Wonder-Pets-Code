@@ -33,14 +33,14 @@ display(df)
 #check for null values
 null_count = df.isnull().sum(axis=1)
 
-flagged_rows = df[null_count >=2].copy()
-flagged_rows["Null_Count"] = null_count[null_count >= 2]
+flagged_rows = df[null_count >=config.null_count].copy()
+flagged_rows["Null_Count"] = null_count[null_count >= config.null_count]
 
 if not flagged_rows.empty:
-  print(f"ALERT: len{len(flagged_rows)} row(s) have 2 or more nulls:")
+  print(f"ALERT: len{len(flagged_rows)} row(s) have "+str(config.null_count)+" or more nulls:")
   print("flagged_rows")
 
 else:
-  print("No rows have 2 or more nulls.")
+  print("No rows have "+str(config.null_count)+" or more nulls.")
 
 print("Pipeline continuing...")
