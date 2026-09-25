@@ -1,4 +1,3 @@
-!mamba install pandas
 import pandas as pd
 import config
 
@@ -6,7 +5,6 @@ import config
 #changes number of persons to tickets bought
 def prepare_df(df):
   df.rename(columns={"Number_of_Person": "Tickets_Bought"},inplace=True)
-  df['age_type'] = pd.cut(df['Age'], bins=bins, labels=labels, right=False)
 
   #changes the word alone to the number one
   df['Tickets_Bought'] = pd.to_numeric(
