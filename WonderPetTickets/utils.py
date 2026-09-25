@@ -1,5 +1,6 @@
 !mamba install pandas
 import pandas as pd
+import config
 df = pd.read_csv('cinema_hall_ticket_sales.csv')
 
 #changes number of persons to tickets bought
@@ -24,8 +25,8 @@ df['age_type'] = pd.cut(df['Age'], bins=bins, labels=labels, right=False)
 # Define your bin boundaries and matching labels
 df['Generation'] = pd.cut(
     df['Age'],
-    bins=[18, 25, 35, 45, 60,70],
-    labels=['Gen Z', 'Millennials', 'Gen X', 'Boomers', 'Silent']
+    bins=config.bins,
+    labels=config.labels
 )
 display(df)
 
