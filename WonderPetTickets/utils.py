@@ -1,7 +1,7 @@
 !mamba install pandas
 import pandas as pd
 import config
-df = pd.read_csv('cinema_hall_ticket_sales.csv')
+
 
 #changes number of persons to tickets bought
 def prepare_df(df):
